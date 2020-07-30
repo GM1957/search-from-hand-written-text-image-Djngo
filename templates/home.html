@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock title %}
+{% block body %}
+
+<div class="container"style="font-family: 'El Messiri', sans-serif; font-size: 30px;">
+
+    <h1 class="text-center" style="margin-top:10%;"> <span style="border-bottom: solid 2px;"><b>How It Works ?</b></span></h1>
+<div class="row m-5">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <img src="../media/imgs/q.jpg" class="rounded float-left" alt="..." style="max-height: 300px; max-width: 270px;">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="container text-center">
+            <h6><b>Type Here</b></h6>
+            <form action="searchfromtext" method="get" >
+                {% csrf_token %}
+                  <input class="form-control mr-sm-2 m-2" name="search" id="search" type="search" placeholder="Search">
+                  
+                  <button class="btn btn-outline-danger btn-block mx-2" type="submit">Search</button>
+            </form>
+
+            <h6 class="my-2"><b>or,<br>Upload an Image</b></h6>
+            <form action="searchfromimage" enctype='multipart/form-data' method="Post" >
+                {% csrf_token %}
+                <span id="formcon" class="btn btn-sm">
+                {{form.file}}
+                </span>
+                <button class="btn btn-outline-danger btn-block mx-2" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <img src="../media/imgs/a.jpg" class="rounded float-left" alt="..." style="max-height: 300px; max-width: 270px;">
+    </div>
+    <a href="/allcontents" class="btn btn-block btn-lg btn-success m-5">All Contents</a>
+</div>
+
+</div>
+{% endblock body %}
